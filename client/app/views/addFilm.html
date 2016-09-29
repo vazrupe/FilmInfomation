@@ -1,0 +1,28 @@
+<h2 class="page-header">새 필름 추가</h2>
+<form class="form-horizontal" role="form" ng-init="init()">
+  <div class="form-group col-sm-10">
+    <label for="inputName">필름 이름</label>
+    <input type="text" class="form-control" id="inputName" placeholder="필름의 이름을 입력해주세요" ng-model="name" limit-length="10"/>
+  </div>
+  <div class="form-group col-sm-10">
+    <label for="inputMaker">제조사</label>
+  	<div class="input-group">
+      <input type="text" class="form-control" id="inputMaker" placeholder="필름의 제조사를 입력해주세요" ng-model="maker" limit-length="10"/>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li class="complete-list" ng-repeat="item_maker in makers"><a ng-click="maker_complete(item_maker)">{{item_maker}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="form-group col-sm-10">
+    <label for="inputISO">ISO</label>
+    <rzslider id="inputISO" rz-slider-model="iso.value" rz-slider-options="iso.options"></rzslider>
+  </div>
+  <div class="text-right form-group col-sm-10">
+	<span id="adderr" class="hidden text-warning" style="margin-right: 10px;">{{error_msg}}</span>
+	<button type="button" ng-click="submit()" class="btn btn-primary">추가</button>
+	<button type="button" ng-click="close()" class="btn btn-default">취소</button>
+  </div>
+</form>

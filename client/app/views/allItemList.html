@@ -1,0 +1,32 @@
+<script type="text/ng-template" id="accordion.html">
+	<div class="panel-group" ng-transclude></div>
+</script>
+<script type="text/ng-template" id="group-accordion.html">
+<div class="panel" ng-class="panelClass || 'panel-default'">
+  <div class="panel-heading" ng-keypress="toggleOpen($event)" style="cursor: pointer;">
+    <h5 class="panel-title">
+      <a tabindex="0" class="accordion-toggle" uib-accordion-transclude="heading"><span ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
+    </h5>
+  </div>
+  <div class="panel-collapse collapse" uib-collapse="!isOpen">
+    <ul class="list-group" ng-transclude></ul>
+  </div>
+</div>
+</script>
+
+<h2 class="page-header">{{title}}</h2>
+<h4><a href="#/all/{{itemType}}/add"><span class="glyphicon glyphicon-plus"></span> 새 장비 추가</a></h4>
+<uib-accordion template-url="accordion.html" ng-init="init()">
+  <div class="form-group col-sm-12">
+    <input class="form-control" type="text" ng-model="search" placeholder="Search..."/>
+  </div>
+  <uib-accordion-group ng-repeat="item in itemList | lowercase | filter:search" template-url="group-accordion.html" is-open="item.open">
+  	<uib-accordion-heading>
+  	  <span ng-click="toggleOpen(item)">{{item.name}} <small><em>{{item.maker}}</em></small></span>
+	  <div class="btn-group pull-right">
+	    <button ng-if="hasUserItem(item)" ng-click="addItem(item)" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
+	  </div>
+  	</uib-accordion-heading>
+    <li class="list-group-item" ng-repeat="(key, value) in item.contents"><strong>{{contentsKeyRempping[key]}}</strong><span class="pull-right">{{value}}</span></li>
+  </uib-accordion-group>
+</uib-accordion>

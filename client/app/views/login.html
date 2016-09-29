@@ -1,0 +1,15 @@
+<h2 class="page-header">로그인</h2>
+<form class="form-horizontal" role="form" ng-init="init()">
+  <div class="form-group col-sm-10">
+    <label for="inputID">ID</label>
+    <input type="text" class="form-control" id="inputID" placeholder="아이디를 입력해주세요" ng-model="id" value="{{lastid}}" limit-length="20">
+  </div>
+  <div class="form-group col-sm-10">
+    <label for="inputPassword">Password</label>
+    <input type="password" class="form-control" id="inputPassword" placeholder="비밀번호를 입력해주세요" ng-model="passwd">
+  </div>
+  <div class="text-right form-group col-sm-10">
+	  <span id="loginerr" class="hidden" style="margin-right: 10px; color:red;">{{error_msg}}</span>
+	  <button id="RLSubmit" type="button" ng-click="submit()" class="btn btn-primary">등록 / 로그인</button>
+  </div>
+</form>

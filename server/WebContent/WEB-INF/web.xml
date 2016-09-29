@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>FilmInformation</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+  </welcome-file-list>
+  <listener>
+    <listener-class>com.codefict.film.FilmOracleServerListener</listener-class>
+  </listener>
+  <context-param>
+    <param-name>oracle-host</param-name>
+    <param-value>your-host</param-value>
+  </context-param>
+  <context-param>
+    <param-name>oracle-port</param-name>
+    <param-value>your-port</param-value>
+  </context-param>
+  <context-param>
+    <param-name>oracle-sid</param-name>
+    <param-value>your-oracle-sid</param-value>
+  </context-param>
+  <context-param>
+    <param-name>oracle-user</param-name>
+    <param-value>your-oracle-user</param-value>
+  </context-param>
+  <context-param>
+    <param-name>oracle-password</param-name>
+    <param-value>your-oracle-password</param-value>
+  </context-param>
+</web-app>

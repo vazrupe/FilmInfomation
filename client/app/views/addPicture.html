@@ -1,0 +1,47 @@
+<h2 class="page-header">필름<small><em>#{{userFilmNumber}}</em></small> 사진 추가</h2>
+<form class="form-horizontal" role="form" ng-init="init()">
+  <div class="form-group col-sm-10">
+    <label for="inputTarget">피사체</label>
+  	<div class="input-group">
+      <input type="text" class="form-control" id="inputTarget" placeholder="촬영한 대상을 입력해주세요" ng-model="target" limit-length="20"/>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li class="complete-list" ng-repeat="item_maker in makers"><a ng-click="maker_complete(item_maker)">{{item_maker}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="form-group col-sm-10">
+    <label for="inputShutterSpeed">셔터 스피드</label>
+    <rzslider id="inputShutterSpeed" ng-model="shutterspeed" rz-slider-model="shutterspeed.value" rz-slider-options="shutterspeed.options"></rzslider>
+  </div>
+  <div class="form-group col-sm-10">
+    <label for="inputDiaphragm">조리개</label>
+    <rzslider id="inputDiaphragm" ng-model="diaphragm" rz-slider-model="diaphragm.value" rz-slider-options="diaphragm.options"></rzslider>
+  </div>
+  <div class="form-group col-sm-10">
+    <label for="inputRange">초점거리</label>
+    <rzslider id="inputRange" ng-model="range" rz-slider-model="range.value" rz-slider-options="range.options"></rzslider>
+	<div class="radio"><label class="col-xs-4"><input type="radio" name="rt" ng-model="range.type" ng-change="rangeTypeChange()" value="slide"/> 슬라이드</label></div>
+	<div class="radio"><label class="col-xs-4"><input type="radio" name="rt" ng-model="range.type" ng-change="rangeTypeChange()" value="macro" ng-if="hasRangeMacro"/> MACRO</label></div>
+	<div class="radio"><label class="col-xs-4"><input type="radio" name="rt" ng-model="range.type" ng-change="rangeTypeChange()" value="unlimited" ng-if="hasRangeUnlimited"/> 무한대</label></div>
+  </div>
+  <div class="form-group col-sm-10">
+    <label for="inputZoom">줌</label>
+    <rzslider id="inputZoom" ng-model="zoom" rz-slider-model="zoom.value" rz-slider-options="zoom.options"></rzslider>
+  </div>
+  <div class="form-group col-sm-10">
+    <label for="inputEV">EV</label>
+    <rzslider id="inputEV" ng-model="ev" rz-slider-model="ev.value" rz-slider-options="ev.options"></rzslider>
+  </div>
+  <div class="form-group col-sm-10">
+    <label for="inputISO">ISO</label>
+    <rzslider id="inputISO" ng-model="iso" rz-slider-model="iso.value" rz-slider-options="iso.options"></rzslider>
+  </div>
+  <div class="text-right form-group col-sm-10">
+	<span id="adderr" class="hidden text-warning" style="margin-right: 10px;">{{error_msg}}</span>
+	<button type="button" ng-click="submit()" class="btn btn-primary">추가</button>
+	<button type="button" ng-click="close()" class="btn btn-default">취소</button>
+  </div>
+</form>

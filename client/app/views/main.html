@@ -1,0 +1,20 @@
+<div ng-if="noneInsertedFilm">
+  <h2 class="page-header">촬영 정보 기록하기</h2>
+  <div class="list-group">
+    <a class="list-group-item" ng-repeat="film in filmList" href="#/add/picture/{{film.id}}"><span>{{film.c_name}}<small><em>{{film.f_name}}</em></small> #{{film.f_count}}</span></a>
+  </div>
+</div>
+
+<h2 class="page-header" ng-init="init()">내 장비</h2>
+<div class="list-group">
+  <a href="#/user/camera" class="list-group-item">카메라</a>
+  <a href="#/user/lens" class="list-group-item">렌즈</a>
+  <a href="#/user/film" class="list-group-item">필름</a>
+</div>
+
+<h2 class="page-header">전체 장비</h2>
+<div class="list-group">
+  <a href="#/all/camera" class="list-group-item">카메라</a>
+  <a href="#/all/lens" class="list-group-item">렌즈</a>
+  <a href="#/all/film" class="list-group-item">필름</a>
+</div>
